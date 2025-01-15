@@ -1,0 +1,27 @@
+{
+  "name": "DemoRestApi",
+  "author": "Barry Hykes Jr",
+  "version": "1.0.0",
+  "description": "Demo Rest Api with Mongo Db",
+  "main": "/var/task/index.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "mocha --exit --timeout 3000",
+    "start": "nodemon /var/task/index.mjs"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.4",
+    "nodemailer": "^6.9.16",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.17",
+    "typescript": "^5.7.3"
+  }
+}
