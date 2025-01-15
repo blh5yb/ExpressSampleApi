@@ -1,5 +1,6 @@
 # Demo Spring API
 This is a demo node express.js api with some unit tests
+### note: use .env file to export env variable and dotenv node package to load the env variables
 
 ## Features
  - Mongo DB Schema
