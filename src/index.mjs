@@ -3,6 +3,7 @@ import "./loadEnvironment.js";
 import express from 'express'; 
 import bodyParser from 'body-parser';
 import connectDb from "./db/conn.js";
+import serverless from 'serverless-http';
 
 const app = express();
 //app.use(cors());
@@ -25,11 +26,5 @@ app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 })
 
- export const handler = async (event) => {
-  const response = {
-      statusCode: 200,
-      body: JSON.stringify('Hello from Lambda!'),
-  };
-  return response;
-};
+export const handler = serverless(app)
 export default app

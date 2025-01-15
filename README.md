@@ -1,5 +1,6 @@
 # Demo Spring API
 This is a demo node express.js api with some unit tests
+### note: use .env file to export env variable and dotenv node package to load the env variables
 
 ## Features
  - Mongo DB Schema
@@ -14,10 +15,6 @@ This is a demo node express.js api with some unit tests
     docker-compose build app
     docker-compose up
 ```
-
-### test api: http://localhost:8080/
-### test db: http://localhost:8080/h2-console # brew install h2 && brew services start h2
-### Swagger: http://localhost:8080/swagger-ui/index.html
 
 ## Endpoints
 ### GET /products

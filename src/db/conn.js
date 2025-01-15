@@ -3,15 +3,6 @@ import { MongoClient } from "mongodb";
 import * as mongoose from 'mongoose';
 const connectionString = process.env.ATLAS_URI || "";
 
-
-//const client = new MongoClient(connectionString);
-//let conn;
-//try {
-//  conn = await client.connect();
-//} catch(e) {
-//  console.error(e);
-//  process.exit();
-//}
 const connectDb = async () => {
   try {
     const conn = await mongoose.connect(connectionString, {

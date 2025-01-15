@@ -6,8 +6,6 @@ services:
     platform: linux/amd64
     build:
       context: .
-    volumes:
-      - ./src:/src
     restart: on-failure
     env_file: ./.env
     ports:
