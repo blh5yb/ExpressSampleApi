@@ -23,6 +23,9 @@ This is a demo node express.js api with some unit tests
     docker-compose up
 ```
 
+## Swagger UI Docs
+http://localhost:3000/api-docs
+
 ## Auth Endpoints
 ### POST /register
  - req body: {"name": "name", "email": "example@email.com", "password": "supersecretpassword"}
@@ -53,7 +56,8 @@ This is a demo node express.js api with some unit tests
 
 ## To Do:
  - Complete Unit Tests
- - swagger docs
- - robust status codes/ error handling
- - email endpoint
+ - Complete swagger docs
+ - Add rate limits
+ - Robust status codes/ error handling
+ - Email endpoint
 
