@@ -18,7 +18,7 @@ export const getByUniqueField = async (queryData, callback) => {
         const product = await productModel.findOne(queryData)
         return callback(null, product)
     } catch (error) {
-        return callback(`Error fetching product ${queryData}` + error);
+        return callback(`Error fetching product ${queryData}: ` + error);
     }
 } 
 
@@ -32,13 +32,13 @@ export const getProductById = async (id, callback) => {
 }
 
 export const createProduct = async(reqBody, callback) => {
-    const product = new productModel({
-        name: reqBody.name,
-        description: reqBody.description,
-        price: reqBody.price
-    })
-    console.log(product)
     try {
+        const product = new productModel({
+            name: reqBody.name,
+            description: reqBody.description,
+            price: reqBody.price
+        })
+        console.log(product)
         const savedProduct = await product.save()
         return callback(null, savedProduct)
     } catch(error){

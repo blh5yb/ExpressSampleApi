@@ -6,7 +6,14 @@ This is a demo node express.js api with some unit tests
  - Mongo DB Schema
  - Unit Tests
  - Dockerized (with docker-compose)
- - aws lambda docker configuration
+ - AWS Lambda docker configuration
+
+## Programming Languages and Frameworks
+ - Javascript
+ - MongoDB
+ - Express.js
+ - Node.js
+ - Docker
 
 ## Cmds
 ```
@@ -16,21 +23,41 @@ This is a demo node express.js api with some unit tests
     docker-compose up
 ```
 
-## Endpoints
+## Swagger UI Docs
+http://localhost:3000/api-docs
+
+## Auth Endpoints
+### POST /register
+ - req body: {"name": "name", "email": "example@email.com", "password": "supersecretpassword"}
+ - returns: accessToken, refreshtoken, User
+### POST /login
+ - req body: {"name": "name", "email": "example@email.com", "password": "supersecretpassword"}
+ - returns: accessToken, refreshtoken, User
+### POST /refresh
+ - req cookies: refreshToken
+ - returns: accessToken
+
+
+## Product Endpoints
 ### GET /products
 ### GET /products/{id}
-### ### PUT /products/ 
+### PUT /products/ (Protected)
+ - req headers: authorization
+ - req cookies refreshToken 
  - req body: {"name": "name", "price": 10, "description": "test description"}
-### Patch /products/{id}
+### Patch /products/{id} (Protected)
+ - req headers: authorization
+ - req cookies refreshToken 
  - req body: {"name": "name", "price": 10, "description": "test description"}
-### DELETE /products/{id}
+### DELETE /products/{id} (Protected)
+ - req headers: authorization
+ - req cookies refreshToken 
 
 
 ## To Do:
- - API Authentication and private endpoints
  - Complete Unit Tests
- - swagger docs
- - robust status codes/ error handling
- - cors policy and middleware
- - email endpoint
+ - Complete swagger docs
+ - Add rate limits
+ - Robust status codes/ error handling
+ - Email endpoint
 
