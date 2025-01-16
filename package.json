@@ -7,8 +7,7 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "start": "node src/index.mjs",
-    "swagger-autogen": "node src/swagger.js"
+    "start": "node src/index.mjs"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -42,7 +41,6 @@
     "nodemailer": "^6.9.16",
     "parameter-validator": "^1.0.5",
     "serverless-http": "^3.2.0",
-    "swagger-autogen": "^2.23.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "winston": "^3.17.0"
