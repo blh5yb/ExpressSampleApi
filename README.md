@@ -8,6 +8,13 @@ This is a demo node express.js api with some unit tests
  - Dockerized (with docker-compose)
  - aws lambda docker configuration
 
+## Programming Languages and Frameworks
+ - Javascript
+ - MongoDB
+ - Express.js
+ - Node.js
+ - Docker
+
 ## Cmds
 ```
     npm test
