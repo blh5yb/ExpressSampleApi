@@ -6,7 +6,7 @@ This is a demo node express.js api with some unit tests
  - Mongo DB Schema
  - Unit Tests
  - Dockerized (with docker-compose)
- - aws lambda docker configuration
+ - AWS Lambda docker configuration
 
 ## Programming Languages and Frameworks
  - Javascript
