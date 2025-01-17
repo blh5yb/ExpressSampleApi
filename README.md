@@ -60,6 +60,8 @@ http://localhost:3000/api-docs
  - Unit Tests
  - Swagger docs
  - Error Handling
+ - App Security
+ - Input Validation
 
 ## To Do:
  - Email endpoint
