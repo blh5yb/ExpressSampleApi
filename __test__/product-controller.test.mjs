@@ -19,9 +19,8 @@ describe('Products Controller', () => {
     afterEach(() => {
 
     })
-    let products = [
-        {_id: 'someId', name: 'product1', description: 'desc 1', price: 1}
-    ]
+    let product1 = {_id: 'someId', name: 'product1', description: 'desc 1', price: 1}
+    let products = [product1]
     it('Should get all products and return status ok', async () => {
         mockingoose(productModel).toReturn(products, 'find')
         const req = {

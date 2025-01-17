@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs/dist/bcrypt.js';
+
 import jwt from 'jsonwebtoken';
 import userModel from '../models/user.model.js';
 import { secretKey } from '../config.js';
@@ -6,14 +6,14 @@ import { secretKey } from '../config.js';
 export const createUser = async(reqBody, callback) => {
     try {
         const newUser = new userModel({
-            name: reqBody.username,
+            name: reqBody.name,
             email: reqBody.email,
-            password: await bcrypt.hash(reqBody.password, 10)
+            password: reqBody.password
         })
-        const savedUser = await newUser.save();
-        const accessToken = jwt.sign({userId: savedUser._id}, secretKey, {expiresIn: '1h'});
-        const refreshToken = jwt.sign({userId: savedUser._id}, secretKey, {expiresIn: '1d'});
-        return callback(null, {newUser, accessToken, refreshToken});
+        const user = await newUser.save();
+        const accessToken = jwt.sign({userId: user._id}, secretKey, {expiresIn: '1h'});
+        const refreshToken = jwt.sign({userId: user._id}, secretKey, {expiresIn: '1d'});
+        return callback(null, {user, accessToken, refreshToken});
     } catch (error){
         return callback(`Error registering user ${reqBody.name}: ${error}`)
     }

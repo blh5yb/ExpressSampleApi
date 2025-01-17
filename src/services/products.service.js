@@ -16,7 +16,7 @@ export const getAllProducts = async(callback) => {
 export const getByUniqueField = async (queryData, callback) => {
     try {
         const product = await productModel.findOne(queryData)
-        return callback(null, product)
+        return callback(null, (product ? product : `Product, ${queryData}, not found`))
     } catch (error) {
         return callback(`Error fetching product ${queryData}: ` + error);
     }

@@ -7,6 +7,8 @@ This is a demo node express.js api with some unit tests
  - Unit Tests
  - Dockerized (with docker-compose)
  - AWS Lambda docker configuration
+ - Rate Limits and Delays
+ - Swagger API Documentation
 
 ## Programming Languages and Frameworks
  - Javascript
@@ -54,10 +56,11 @@ http://localhost:3000/api-docs
  - req cookies refreshToken 
 
 
+## In Progress:
+ - Unit Tests
+ - Swagger docs
+ - Error Handling
+
 ## To Do:
- - Complete Unit Tests
- - Complete swagger docs
- - Add rate limits
- - Robust status codes/ error handling
  - Email endpoint
 

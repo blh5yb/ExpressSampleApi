@@ -41,7 +41,7 @@ export const authenticate = (req, res, next) => {
         return res.status(400).send({
             success: 0,
             message: 'Access Denied',
-            error: 'Invalid token'
+            error: 'Missing or Invalid token.'
           });
       }
     }
