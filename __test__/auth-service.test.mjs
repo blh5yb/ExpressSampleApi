@@ -39,7 +39,9 @@ describe('Auth Controller', () => {
         }
         await authService.createUser(req.body, (error, results) => {
             expect(results.accessToken).toBe(accessToken)
+            expect(results.refreshToken).toBe(refreshToken)
             expect(results.user.password).toBe(passHash)
+            expect(error).toBeNull()
         })
     })
 }
