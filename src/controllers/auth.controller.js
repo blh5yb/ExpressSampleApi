@@ -11,6 +11,8 @@ import { logger } from "../config.js";
 
 export const registrationController = async(req, res, next) => {
     //const user = new User(req.body)
+    console.log(req)
+    console.log(req.ip)
     return await authService.createUser(req.body, (error, results) => {
         if (error) {
             logger.fatal(error)

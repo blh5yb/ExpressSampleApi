@@ -8,6 +8,7 @@ import swaggerUi from  'swagger-ui-express';
 //import * as swaggerFile from './swagger_output.json'
 //const swaggerFile = require('./swagger_output.json');
 import { port, swaggerDocs } from "./config.js";
+import { rateLimiter } from "./middleware/rate-limiter.mjs";
 
 const app = express();
 //app.use(cors());
@@ -25,12 +26,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 //app.use(bodyParser.json())
 /**
  * @swagger
- * tags:
- *   name: API Entry Point
- *   description: 
- */
-/**
- * @swagger
  * /:
  *   get:
  *     description: Prints Hello world
@@ -41,7 +36,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
  *       200:
  *         description: API is working
  */
-app.get('/', (req, res) => {
+app.get('/', rateLimiter, (req, res) => {
     res.send('Hello World!');
 });
 
