@@ -1,5 +1,3 @@
-import mockingoose from "mockingoose"
-import userModel from "../src/models/user.model";
 import { jest, expect} from '@jest/globals';
 
 jest.unstable_mockModule('../src/services/auth.service.js', async () => ({
@@ -11,14 +9,12 @@ describe('Auth Controller Tests',() => {
     let mockRes;
     let user = {name: 'user1', email: 'test@email.com', password: 'password'}
     let userWithId = {_id: 'userId', name: 'user1', email: 'test@email.com', password: 'password'}
-    let passHash = 'hashedPassword'
     let accessToken = 'access_token' 
     let refreshToken = 'refresh_token' 
 
     beforeAll(async () => {
     })
     beforeEach( async () => {
-        mockingoose.resetAll();
         mockRes = {
             status: jest.fn().mockReturnThis(),
             cookie: jest.fn().mockReturnThis(),
@@ -32,7 +28,6 @@ describe('Auth Controller Tests',() => {
       }
     );
     it('Should execute the create User and access token', async () => {
-        mockingoose(userModel).toReturn(user, 'save')
         let authService = await import('../src/services/auth.service.js')
         authService.createUser.mockImplementation((req, callback) => {return callback(null, {user, accessToken, refreshToken})})
         const req = {

@@ -6,7 +6,6 @@ export const getAllProducts = async(callback) => {
     try {
         const allProducts =  await productModel.find()
         //const allProducts = await product.find();
-        console.log('products', allProducts)
         return callback(null, allProducts)
     } catch (error){
         return callback("Error fetching products: " + error);
