@@ -3,7 +3,7 @@ import mockingoose from "mockingoose";
 import { jest, expect} from '@jest/globals';
 import productModel from '../src/models/product.model';
 
-jest.unstable_mockModule('../src/services/product.service.js', async () => ({
+jest.unstable_mockModule('../src/services/products.service.js', async () => ({
     getAllProducts: jest.fn()
 }) )
 const productControllers = await import('../src/controllers/products.controller')
