@@ -3,7 +3,7 @@ import mockingoose from "mockingoose";
 import { jest, expect} from '@jest/globals';
 import productModel from '../src/models/product.model';
 
-describe('Products Controller', () => {
+describe('Products Controller Tests', () => {
     beforeAll(async () => {
     })
     afterAll(async () => {})

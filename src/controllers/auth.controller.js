@@ -1,4 +1,4 @@
-import * as authService from '../services/auth.service.js';
+import * as authService from '/Users/barryhykesjr/Documents/Apps/ExpressJsDemo/src/services/auth.service.js';
 import { logger } from "../config.js";
 
 //class User {
@@ -10,9 +10,6 @@ import { logger } from "../config.js";
 //}
 
 export const registrationController = async(req, res, next) => {
-    //const user = new User(req.body)
-    console.log(req)
-    console.log(req.ip)
     return await authService.createUser(req.body, (error, results) => {
         if (error) {
             logger.fatal(error)
