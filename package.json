@@ -31,7 +31,9 @@
       "**/?(*).(spec|test).(m)js?(x)",
       "**/?(*).(spec|test).(c)js?(x)"
     ],
-    "transform": {}
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   },
   "dependencies": {
     "@types/express": "^5.0.0",
@@ -50,6 +52,8 @@
     "mongoose": "^8.9.4",
     "nodemailer": "^6.9.16",
     "parameter-validator": "^1.0.5",
+    "rewire": "^7.0.0",
+    "rewiremock": "^3.14.5",
     "serverless-http": "^3.2.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
@@ -65,8 +69,11 @@
     "@types/cors": "^2.8.17",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/nodemailer": "^6.4.17",
+    "@types/rewire": "^2.5.30",
+    "@types/sinon": "^17.0.3",
     "@types/supertest": "^6.0.2",
     "babel-jest": "^29.7.0",
+    "babel-plugin-rewire": "^1.2.0",
     "chai": "^5.1.2",
     "cross-env": "^7.0.3",
     "jest": "^29.7.0",

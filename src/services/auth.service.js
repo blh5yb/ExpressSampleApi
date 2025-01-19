@@ -4,6 +4,7 @@ import userModel from '../models/user.model.js';
 import { secretKey } from '../config.js';
 
 export const createUser = async(reqBody, callback) => {
+    console.log(reqBody)
     try {
         const newUser = new userModel({
             name: reqBody.name,
