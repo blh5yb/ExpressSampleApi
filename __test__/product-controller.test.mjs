@@ -1,8 +1,12 @@
-import * as productControllers from '../src/controllers/products.controller';
+//import * as productControllers from '../src/controllers/products.controller';
 import mockingoose from "mockingoose";
 import { jest, expect} from '@jest/globals';
 import productModel from '../src/models/product.model';
 
+jest.unstable_mockModule('../src/services/products.service.js', async () => ({
+    getAllProducts: jest.fn()
+}) )
+const productControllers = await import('../src/controllers/products.controller')
 describe('Products Controller Tests', () => {
     beforeAll(async () => {
     })
@@ -28,9 +32,17 @@ describe('Products Controller Tests', () => {
             query: {},
             params: {}
         }
+        let productsService = await import('../src/services/products.service');
+        productsService.getAllProducts.mockImplementation((callback) => {
+            return callback(null, products)
+        })
 //
         await productControllers.getProductsController(req, mockRes)
-        expect(mockRes.send).toHaveBeenCalled();
+        expect(mockRes.send).toHaveBeenCalledWith({
+            success: 1,
+            data: products,
+            error: null
+        });
         
         expect(mockRes.status).toHaveBeenCalledWith(200);
     })
