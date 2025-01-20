@@ -30,7 +30,7 @@ export const logger = createLogger({
 export const secretKey = process.env.JWT_SECRET;
 export const appSecret = process.env.MY_SECRET;
 export const appSession = process.env.APP_SESSION;
-export const isDev = process.env.isDev
+export const isDev = process.env.isDEV;
 
 export const port = 3000
  // Swagger definition
