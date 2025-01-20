@@ -8,7 +8,7 @@ import serverless from 'serverless-http';
 import swaggerUi from  'swagger-ui-express';
 //import * as swaggerFile from './swagger_output.json'
 //const swaggerFile = require('./swagger_output.json');
-import { appSecret, appSession, port, swaggerDocs } from "./config.js";
+import { appSecret, appSession, port, swaggerDocs, isDev } from "./config.js";
 import { rateLimiter } from "./middleware/rate-limiter.mjs";
 
 const app = express();

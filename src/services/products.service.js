@@ -8,16 +8,17 @@ export const getAllProducts = async(callback) => {
         //const allProducts = await product.find();
         return callback(null, allProducts)
     } catch (error){
-        return callback("Error fetching products: " + error);
+        return callback("Error fetching products. " + error);
     }
 }
 
 export const getByUniqueField = async (queryData, callback) => {
     try {
         const product = await productModel.findOne(queryData)
-        return callback(null, (product ? product : `Product, ${queryData}, not found`))
+        const results = product ? product : `Product not found`
+        return callback(null, results)
     } catch (error) {
-        return callback(`Error fetching product ${queryData}: ` + error);
+        return callback(`Error fetching product. ` + error);
     }
 } 
 
@@ -26,40 +27,44 @@ export const getProductById = async (id, callback) => {
         const product = await productModel.findById(id)
         return callback(null, product)
     } catch (error){
-        return callback(`Error fetching product with id, ${id}` + error);
+        return callback(`Error fetching product with id, ${id}. ` + error);
     }
 }
 
 export const createProduct = async(reqBody, callback) => {
     try {
+        //const product = {
+        //    name: reqBody.name,
+        //    description: reqBody.description,
+        //    price: reqBody.price
+        //}
         const product = new productModel({
             name: reqBody.name,
             description: reqBody.description,
             price: reqBody.price
         })
-        console.log(product)
         const savedProduct = await product.save()
         return callback(null, savedProduct)
     } catch(error){
-        return callback("Error creating product: " + error)
+        return callback("Error creating product. " + error)
     }
 }
 
 export const updateProduct = async(id, reqBody, callback) => {
-    productModel.findByIdAndUpdate(id, reqBody)
     try {
-        const savedProduct = await product.save()
+        const savedProduct = await productModel.findOneAndUpdate({_id: id}, reqBody, {new: true})
+        //const savedProduct = await product.save()
         return callback(null, savedProduct)
     } catch(error){
-        return callback("Error creating product: " + error)
+        return callback("Error updating product. " + error)
     }
 }
 
 export const deleteProduct = async(id, callback) => {
     try {
-        await productModel.findByIdAndDelete(id)
+        await productModel.findOneAndDelete({_id: id})
         return callback(null, `Successfully deleted product with id: ${id}`)
     } catch (error) {
-        return callback(`Error deleting product with id, ${id}` + error)
+        return callback(`Error deleting product with id, ${id}. ` + error)
     }
 }

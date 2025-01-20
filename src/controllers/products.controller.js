@@ -54,7 +54,7 @@ export const getProductsController = async (req, res, next) => {
 }
 
 export const getProductByIdController = async (req, res, next) => {
-    return await productService.getProductById(req.params.id, (error, results) => {
+    return await productService.getByUniqueField({_id: req.params.id}, (error, results) => {
         if (error) {
             logger.fatal(error)
             return res.status(400).send({
@@ -74,7 +74,6 @@ export const getProductByIdController = async (req, res, next) => {
 }
 
 export const createProductController = async (req, res, next) => {
-    //const data = new Product(req.body)
 
     return await productService.createProduct(req.body, (error, results) => {
         if (error) {

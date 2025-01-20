@@ -1,4 +1,4 @@
-import * as authService from '/Users/barryhykesjr/Documents/Apps/ExpressJsDemo/src/services/auth.service.js';
+import * as authService from '../services/auth.service.js';
 import { logger } from "../config.js";
 
 //class User {
