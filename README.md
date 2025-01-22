@@ -64,5 +64,6 @@ http://localhost:3000/api-docs
  - Input Validation
 
 ## To Do:
+ - Annotate code
  - Email endpoint
 

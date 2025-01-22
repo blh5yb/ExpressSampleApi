@@ -11,7 +11,7 @@ FROM public.ecr.aws/lambda/nodejs:22
 WORKDIR /
 RUN mkdir src
 COPY ./src /src
-RUN chmod 777 /src
+RUN chmod 755 /src
 RUN rm -rf ./src/swagger_output.json ./src/swagger.js
 
 COPY ./package.json .
